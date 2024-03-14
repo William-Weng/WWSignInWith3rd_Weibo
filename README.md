@@ -1,10 +1,10 @@
 # WWSignInWith3rd+Weibo
 
-[![Swift-5.7](https://img.shields.io/badge/Swift-5.7-orange.svg?style=flat)](https://developer.apple.com/swift/) [![iOS-14.0](https://img.shields.io/badge/iOS-14.0-pink.svg?style=flat)](https://developer.apple.com/swift/) ![](https://img.shields.io/github/v/tag/William-Weng/WWSignInWith3rd_Weibo) [![Swift Package Manager-SUCCESS](https://img.shields.io/badge/Swift_Package_Manager-SUCCESS-blue.svg?style=flat)](https://developer.apple.com/swift/) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift-5.6](https://img.shields.io/badge/Swift-5.6-orange.svg?style=flat)](https://developer.apple.com/swift/) [![iOS-14.0](https://img.shields.io/badge/iOS-14.0-pink.svg?style=flat)](https://developer.apple.com/swift/) ![](https://img.shields.io/github/v/tag/William-Weng/WWSignInWith3rd_Weibo) [![Swift Package Manager-SUCCESS](https://img.shields.io/badge/Swift_Package_Manager-SUCCESS-blue.svg?style=flat)](https://developer.apple.com/swift/) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 
-[Use Weibo third-party login.](https://github.com/sinaweibosdk/weibo_ios_sdk)
-
-[使用新浪微博的第三方登入。](https://open.weibo.com/wiki/Sdk/ios)
+### [Introduction - 簡介](https://swiftpackageindex.com/William-Weng)
+- [Use Weibo third-party login.](https://github.com/sinaweibosdk/weibo_ios_sdk)
+- [使用新浪微博的第三方登入。](https://open.weibo.com/wiki/Sdk/ios)
 
 ![](./Example.gif)
 
@@ -14,6 +14,15 @@ dependencies: [
     .package(url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
+
+### Function - 可用函式
+|函式|功能|
+|-|-|
+|configure(appKey:secret:universalLink:redirectURI:isEnableDebugMode:)|參數設定|
+|login(completion:)|登入|
+|logout(with:)|登出|
+|canOpenURL(_:open:options:)|在外部由URL Scheme開啟 -> application(_:open:options:)|
+|canOpenUniversalLink(_:continue:restorationHandler:)|在外部由UniversalLink開啟 -> application(_:continue:restorationHandler:)|
 
 ### Example
 ```swift
