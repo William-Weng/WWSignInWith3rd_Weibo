@@ -11,7 +11,7 @@
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```js
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo.git", .upToNextMajor(from: "1.1.1"))
 ]
 ```
 
@@ -19,7 +19,7 @@ dependencies: [
 |函式|功能|
 |-|-|
 |configure(appKey:secret:universalLink:redirectURI:isEnableDebugMode:)|參數設定|
-|login(completion:)|登入|
+|login(request:completion:)|登入|
 |logout(with:)|登出|
 |canOpenURL(_:open:options:)|在外部由URL Scheme開啟 -> application(_:open:options:)|
 |canOpenUniversalLink(_:continue:restorationHandler:)|在外部由UniversalLink開啟 -> application(_:continue:restorationHandler:)|
@@ -50,23 +50,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 ```swift
+
 import UIKit
 import WWPrint
 import WWSignInWith3rd_Apple
 import WWSignInWith3rd_Weibo
 
 final class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    /// [設定Build Settings -> Other Linker Flags => -ObjC -all_load](https://www.jianshu.com/p/96ce02c214aa)
-    /// - Parameter sender: UIButton
+        
     @IBAction func signInWithWeibo(_ sender: UIButton) {
         
-        WWSignInWith3rd.Weibo.shared.login { result in
-
+        WWSignInWith3rd.Weibo.shared.login { request in
+            wwPrint(request)
+        } completion: { result in
             switch result {
             case .failure(let error): wwPrint(error)
             case .success(let info): wwPrint(info)

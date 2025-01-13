@@ -24,6 +24,7 @@ extension WWSignInWith3rd {
         private(set) var redirectURI: String?
         private(set) var accessToken: String?
         
+        private var requestBlock: ((WBBaseRequest?) -> Void)?
         private var completionBlock: ((Result<Data?, Error>) -> Void)?
         
         private override init() {}
@@ -33,7 +34,7 @@ extension WWSignInWith3rd {
 // MARK: - WeiboSDKDelegate + WBHttpRequestDelegate
 extension WWSignInWith3rd.Weibo: WeiboSDKDelegate, WBHttpRequestDelegate {
     
-    public func didReceiveWeiboRequest(_ request: WBBaseRequest?) { wwPrint(request) }
+    public func didReceiveWeiboRequest(_ request: WBBaseRequest?) { requestBlock?(request) }
     public func didReceiveWeiboResponse(_ response: WBBaseResponse?) { loginInformation(with: response) }
 }
 
@@ -64,9 +65,12 @@ public extension WWSignInWith3rd.Weibo {
     }
     
     /// [登入](https://open.weibo.com/wiki/Scope)
-    /// - Parameter completion: [Result<Data?, Error>](https://www.jianshu.com/p/1b744a97e63d)
-    func login(completion: ((Result<Data?, Error>) -> Void)?) {
+    /// - Parameters:
+    ///   - request: (WBBaseRequest? -> Void)?
+    ///   - completion: [Result<Data?, Error>](https://www.jianshu.com/p/1b744a97e63d)
+    func login(request: ((WBBaseRequest?) -> Void)?, completion: ((Result<Data?, Error>) -> Void)?) {
         
+        requestBlock = request
         completionBlock = completion
         
         let request = WBAuthorizeRequest()
