@@ -12,10 +12,12 @@
 		3DBCD87B26F198EF00522E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87926F198EF00522E3B /* Main.storyboard */; };
 		3DBCD87D26F198F300522E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87C26F198F300522E3B /* Assets.xcassets */; };
 		3DBCD88026F198F300522E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87E26F198F300522E3B /* LaunchScreen.storyboard */; };
+		812F2D842F4EA3B50067898E /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 812F2D832F4EA3B50067898E /* WWSignInWith3rd_Weibo */; };
 		8130039027D5D18100436128 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130038F27D5D18100436128 /* Constant.swift */; };
 		8130039227D5D19000436128 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130039127D5D19000436128 /* Extension.swift */; };
+		814CBE642F4E8A1F00A9C8DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CBE632F4E8A1F00A9C8DB /* SceneDelegate.swift */; };
+		814CBE672F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 814CBE662F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo */; };
 		81A82C1D2D3516E600C38DF3 /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 81A82C1C2D3516E600C38DF3 /* WWSignInWith3rd_Weibo */; };
-		81A82C202D35186A00C38DF3 /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 81A82C1F2D35186A00C38DF3 /* WWSignInWith3rd_Weibo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,7 @@
 		81238C812AB167A5005B137E /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
 		8130038F27D5D18100436128 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8130039127D5D19000436128 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		814CBE632F4E8A1F00A9C8DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		81F1F2292AB827650050B5B3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		81F1F22B2AB827890050B5B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		81F1F22D2AB827980050B5B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,8 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812F2D842F4EA3B50067898E /* WWSignInWith3rd_Weibo in Frameworks */,
 				81A82C1D2D3516E600C38DF3 /* WWSignInWith3rd_Weibo in Frameworks */,
-				81A82C202D35186A00C38DF3 /* WWSignInWith3rd_Weibo in Frameworks */,
+				814CBE672F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 				3DBCD88826F1993200522E3B /* Storyboard */,
 				3DBCD88726F1992200522E3B /* ViewController */,
 				3DBCD87326F198EF00522E3B /* AppDelegate.swift */,
+				814CBE632F4E8A1F00A9C8DB /* SceneDelegate.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -148,7 +153,8 @@
 			name = Example;
 			packageProductDependencies = (
 				81A82C1C2D3516E600C38DF3 /* WWSignInWith3rd_Weibo */,
-				81A82C1F2D35186A00C38DF3 /* WWSignInWith3rd_Weibo */,
+				814CBE662F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo */,
+				812F2D832F4EA3B50067898E /* WWSignInWith3rd_Weibo */,
 			);
 			productName = Example;
 			productReference = 3DBCD87026F198EF00522E3B /* Example.app */;
@@ -179,7 +185,7 @@
 			);
 			mainGroup = 3DBCD86726F198EF00522E3B;
 			packageReferences = (
-				81A82C1E2D35186A00C38DF3 /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */,
+				812F2D822F4EA3B40067898E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */,
 			);
 			productRefGroup = 3DBCD87126F198EF00522E3B /* Products */;
 			projectDirPath = "";
@@ -208,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814CBE642F4E8A1F00A9C8DB /* SceneDelegate.swift in Sources */,
 				8130039227D5D19000436128 /* Extension.swift in Sources */,
 				3DBCD87826F198EF00522E3B /* ViewController.swift in Sources */,
 				3DBCD87426F198EF00522E3B /* AppDelegate.swift in Sources */,
@@ -363,7 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +453,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81A82C1E2D35186A00C38DF3 /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */ = {
+		812F2D822F4EA3B40067898E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWSignInWith3rd_Weibo";
 			requirement = {
@@ -457,13 +464,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		81A82C1C2D3516E600C38DF3 /* WWSignInWith3rd_Weibo */ = {
+		812F2D832F4EA3B50067898E /* WWSignInWith3rd_Weibo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 812F2D822F4EA3B40067898E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */;
+			productName = WWSignInWith3rd_Weibo;
+		};
+		814CBE662F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WWSignInWith3rd_Weibo;
 		};
-		81A82C1F2D35186A00C38DF3 /* WWSignInWith3rd_Weibo */ = {
+		81A82C1C2D3516E600C38DF3 /* WWSignInWith3rd_Weibo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81A82C1E2D35186A00C38DF3 /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */;
 			productName = WWSignInWith3rd_Weibo;
 		};
 /* End XCSwiftPackageProductDependency section */

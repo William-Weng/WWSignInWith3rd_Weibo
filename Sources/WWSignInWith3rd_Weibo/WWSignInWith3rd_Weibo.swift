@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import WWPrint
 import WWSignInWith3rd_Apple
 import WeiboSDK
 
 // MARK: - 第三方登入
 extension WWSignInWith3rd {
     
-    /// [新浪微博SDK - 3.3.7](https://github.com/sinaweibosdk/weibo_ios_sdk)
+    /// [新浪微博SDK - 3.4.0](https://github.com/sinaweibosdk/weibo_ios_sdk)
     open class Weibo: NSObject {
 
         public static let shared = Weibo()
@@ -28,14 +27,20 @@ extension WWSignInWith3rd {
         private var completionBlock: ((Result<Data?, Error>) -> Void)?
         
         private override init() {}
+        
+        deinit {
+            requestBlock = nil
+            completionBlock = nil
+        }
     }
 }
 
+extension WWSignInWith3rd.Weibo: WeiboSDKDelegate, WBHttpRequestDelegate {}
+
 // MARK: - WeiboSDKDelegate + WBHttpRequestDelegate
-extension WWSignInWith3rd.Weibo: WeiboSDKDelegate, WBHttpRequestDelegate {
-    
-    public func didReceiveWeiboRequest(_ request: WBBaseRequest?) { requestBlock?(request) }
-    public func didReceiveWeiboResponse(_ response: WBBaseResponse?) { loginInformation(with: response) }
+public extension WWSignInWith3rd.Weibo {
+    func didReceiveWeiboRequest(_ request: WBBaseRequest?) { requestBlock?(request) }
+    func didReceiveWeiboResponse(_ response: WBBaseResponse?) { loginInformation(with: response) }
 }
 
 // MARK: - 公開函式
@@ -78,7 +83,7 @@ public extension WWSignInWith3rd.Weibo {
         request.redirectURI = WWSignInWith3rd.Weibo.shared.redirectURI
         
         WeiboSDK.send(request) { isSuccess in
-            if (!isSuccess) { self.completionBlock?(.failure(Constant.MyError.notOpenURL)) }
+            if (!isSuccess) { self.completionBlock?(.failure(WWSignInWith3rd.CustomError.notOpenURL)) }
         }
     }
     
@@ -99,7 +104,7 @@ public extension WWSignInWith3rd.Weibo {
     ///   - url: URL
     ///   - options: [UIApplication.OpenURLOptionsKey: Any]
     /// - Returns: Bool
-    func canOpenURL(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    func canOpenURL(_ url: URL) -> Bool {
         
         guard let appKey = appKey,
               url.absoluteString.contains(appKey)
@@ -111,7 +116,7 @@ public extension WWSignInWith3rd.Weibo {
     }
     
     /// 在外部由UniversalLink開啟 -> application(_:continue:restorationHandler:)
-    func canOpenUniversalLink(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    func canOpenUniversalLink(userActivity: NSUserActivity) -> Bool {
         return WeiboSDK.handleOpenUniversalLink(userActivity, delegate: self)
     }
 }
@@ -127,7 +132,7 @@ private extension WWSignInWith3rd.Weibo {
               let uid = response.userID,
               let accessToken = response.accessToken
         else {
-            self.completionBlock?(.failure(Constant.MyError.isCancel)); return
+            self.completionBlock?(.failure(WWSignInWith3rd.CustomError.isCancel)); return
         }
 
         DispatchQueue(label: "SinaLoginDispatchQueue").async {

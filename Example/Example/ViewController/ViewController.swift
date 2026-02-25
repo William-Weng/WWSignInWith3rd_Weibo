@@ -6,7 +6,6 @@
 //  ~/Library/Caches/org.swift.swiftpm/
 
 import UIKit
-import WWPrint
 import WWSignInWith3rd_Apple
 import WWSignInWith3rd_Weibo
 
@@ -17,11 +16,11 @@ final class ViewController: UIViewController {
     @IBAction func signInWithWeibo(_ sender: UIButton) {
         
         WWSignInWith3rd.Weibo.shared.login { request in
-            wwPrint(request)
+            print(request)
         } completion: { result in
             switch result {
-            case .failure(let error): wwPrint(error)
-            case .success(let info): wwPrint(info)
+            case .failure(let error): print(error)
+            case .success(let info): print(info)
             }
         }
     }
