@@ -6,6 +6,8 @@
 - [Use Weibo third-party login.](https://github.com/sinaweibosdk/weibo_ios_sdk)
 - [使用新浪微博的第三方登入。](https://open.weibo.com/wiki/Sdk/ios)
 
+https://github.com/user-attachments/assets/2a37deb6-c322-404b-8d2e-bf6f43523df2
+
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```js
 dependencies: [
@@ -40,6 +42,10 @@ dependencies: [
     </dict>
 </array>
 ```
+
+![](https://github.com/user-attachments/assets/fe6f97e4-248b-47c3-945c-efca03170dc3)
+
+![](https://github.com/user-attachments/assets/368caa1e-0d61-40cf-8ce6-6bf6936fe21b)
 
 ### Function - 可用函式
 |函式|功能|
