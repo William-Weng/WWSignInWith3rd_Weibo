@@ -86,7 +86,7 @@ public extension WWSignInWith3rd.Weibo {
             if (!isSuccess) { self.completionBlock?(.failure(WWSignInWith3rd.CustomError.notOpenURL)) }
         }
     }
-    
+        
     /// 登出
     /// - Parameter tag: String
     /// - Returns: Bool
@@ -118,6 +118,27 @@ public extension WWSignInWith3rd.Weibo {
     /// 在外部由UniversalLink開啟 -> application(_:continue:restorationHandler:)
     func canOpenUniversalLink(userActivity: NSUserActivity) -> Bool {
         return WeiboSDK.handleOpenUniversalLink(userActivity, delegate: self)
+    }
+}
+
+// MARK: - 公開函式
+public extension WWSignInWith3rd.Weibo {
+    
+    /// 登入 (非同步版本)
+    /// - Returns: AsyncThrowingStream<LoginEvent, Error>
+    func login() -> AsyncThrowingStream<LoginEvent, Error> {
+        
+        AsyncThrowingStream { continuation in
+            
+            login { request in
+                continuation.yield(.request(request))
+            } completion: { result in
+                switch result {
+                case .failure(let error): continuation.finish(throwing: error)
+                case .success(let data): continuation.yield(.response(data)); continuation.finish()
+                }
+            }
+        }
     }
 }
 

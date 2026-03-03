@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/2a37deb6-c322-404b-8d2e-bf6f43523df2
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```js
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo.git", .upToNextMajor(from: "1.2.0"))
+    .package(url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo.git", .upToNextMajor(from: "1.2.1"))
 ]
 ```
 
@@ -52,6 +52,7 @@ dependencies: [
 |-|-|
 |configure(appKey:secret:universalLink:redirectURI:isEnableDebugMode:)|參數設定|
 |login(request:completion:)|登入|
+|login()|登入 (非同步)|
 |logout(with:)|登出|
 |canOpenURL(_:)|在外部由URL Scheme開啟|
 |canOpenUniversalLink(userActivity:)|在外部由UniversalLink開啟|
@@ -99,14 +100,20 @@ import WWSignInWith3rd_Weibo
 final class ViewController: UIViewController {
         
     @IBAction func signInWithWeibo(_ sender: UIButton) {
+        Task { await loginDemo() }
+    }
+    
+    func loginDemo() async {
         
-        WWSignInWith3rd.Weibo.shared.login { request in
-            print(request)
-        } completion: { result in
-            switch result {
-            case .failure(let error): print(error)
-            case .success(let info): print(info)
+        do {
+            for try await event in WWSignInWith3rd.Weibo.shared.login() {
+                switch event {
+                case .request(let request): print(request)
+                case .response(let data): print(data)
+                }
             }
+        } catch {
+            print(error)
         }
     }
 }
