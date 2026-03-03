@@ -20,7 +20,10 @@ let package = Package(
             dependencies: ["WWSignInWith3rd_Apple", "SinaWeibonSDK"],
             resources: [.process("WeiboSDK"), .copy("Privacy")]
         ),
-        .binaryTarget(name: "SinaWeibonSDK", path: "SinaWeibonSDK.xcframework")
+        .binaryTarget(
+            name: "SinaWeibonSDK",
+            url: "https://github.com/William-Weng/WWSignInWith3rd_Weibo/releases/download/1.2.1/SinaWeibonSDK.xcframework.zip",
+            checksum: "2b16600954f2c3d43c2811113ef9c6e2965b2e42999572bd211aedeebbb1fab4")
     ],
     swiftLanguageVersions: [
         .v5

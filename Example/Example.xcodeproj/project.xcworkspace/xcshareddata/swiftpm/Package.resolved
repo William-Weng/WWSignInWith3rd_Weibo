@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWSignInWith3rd_Weibo",
       "state" : {
-        "revision" : "394569b49dea32cd00c6c548ee02b053a0c0a521",
-        "version" : "1.2.0"
+        "revision" : "58565079f008ac02fac32ee9b83ea6cbd0b9e561",
+        "version" : "1.2.1"
       }
     }
   ],

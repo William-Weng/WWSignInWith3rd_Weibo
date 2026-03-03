@@ -12,7 +12,8 @@
 		3DBCD87B26F198EF00522E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87926F198EF00522E3B /* Main.storyboard */; };
 		3DBCD87D26F198F300522E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87C26F198F300522E3B /* Assets.xcassets */; };
 		3DBCD88026F198F300522E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87E26F198F300522E3B /* LaunchScreen.storyboard */; };
-		8116A4B82F56C7F4006C023E /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 8116A4B72F56C7F4006C023E /* WWSignInWith3rd_Weibo */; };
+		8116A4BB2F56CA2C006C023E /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 8116A4BA2F56CA2C006C023E /* WWSignInWith3rd_Weibo */; };
+		8116A4BE2F56CB24006C023E /* WWSignInWith3rd_Weibo in Frameworks */ = {isa = PBXBuildFile; productRef = 8116A4BD2F56CB24006C023E /* WWSignInWith3rd_Weibo */; };
 		8130039027D5D18100436128 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130038F27D5D18100436128 /* Constant.swift */; };
 		8130039227D5D19000436128 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8130039127D5D19000436128 /* Extension.swift */; };
 		814CBE642F4E8A1F00A9C8DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CBE632F4E8A1F00A9C8DB /* SceneDelegate.swift */; };
@@ -44,7 +45,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FF39782F555A2A00E7C4DE /* WWSignInWith3rd_Weibo in Frameworks */,
-				8116A4B82F56C7F4006C023E /* WWSignInWith3rd_Weibo in Frameworks */,
+				8116A4BE2F56CB24006C023E /* WWSignInWith3rd_Weibo in Frameworks */,
+				8116A4BB2F56CA2C006C023E /* WWSignInWith3rd_Weibo in Frameworks */,
 				81A82C1D2D3516E600C38DF3 /* WWSignInWith3rd_Weibo in Frameworks */,
 				814CBE672F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo in Frameworks */,
 			);
@@ -157,7 +159,8 @@
 				81A82C1C2D3516E600C38DF3 /* WWSignInWith3rd_Weibo */,
 				814CBE662F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo */,
 				81FF39772F555A2A00E7C4DE /* WWSignInWith3rd_Weibo */,
-				8116A4B72F56C7F4006C023E /* WWSignInWith3rd_Weibo */,
+				8116A4BA2F56CA2C006C023E /* WWSignInWith3rd_Weibo */,
+				8116A4BD2F56CB24006C023E /* WWSignInWith3rd_Weibo */,
 			);
 			productName = Example;
 			productReference = 3DBCD87026F198EF00522E3B /* Example.app */;
@@ -188,7 +191,7 @@
 			);
 			mainGroup = 3DBCD86726F198EF00522E3B;
 			packageReferences = (
-				8116A4B62F56C7F4006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */,
+				8116A4BC2F56CB24006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */,
 			);
 			productRefGroup = 3DBCD87126F198EF00522E3B /* Products */;
 			projectDirPath = "";
@@ -456,20 +459,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8116A4B62F56C7F4006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */ = {
+		8116A4BC2F56CB24006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWSignInWith3rd_Weibo";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
+				minimumVersion = 1.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8116A4B72F56C7F4006C023E /* WWSignInWith3rd_Weibo */ = {
+		8116A4BA2F56CA2C006C023E /* WWSignInWith3rd_Weibo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8116A4B62F56C7F4006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */;
+			productName = WWSignInWith3rd_Weibo;
+		};
+		8116A4BD2F56CB24006C023E /* WWSignInWith3rd_Weibo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8116A4BC2F56CB24006C023E /* XCRemoteSwiftPackageReference "WWSignInWith3rd_Weibo" */;
 			productName = WWSignInWith3rd_Weibo;
 		};
 		814CBE662F4E92EF00A9C8DB /* WWSignInWith3rd_Weibo */ = {
